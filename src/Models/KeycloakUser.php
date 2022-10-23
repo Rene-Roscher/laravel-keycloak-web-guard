@@ -82,20 +82,6 @@ class KeycloakUser implements Authenticatable
     }
 
     /**
-     * Check user has roles
-     *
-     * @see KeycloakWebGuard::hasRole()
-     *
-     * @param  string|array  $roles
-     * @param  string  $resource
-     * @return boolean
-     */
-    public function hasRole($roles, $resource = '')
-    {
-        return Auth::hasRole($roles, $resource);
-    }
-
-    /**
      * Get the password for the user.
      *
      * @return string
