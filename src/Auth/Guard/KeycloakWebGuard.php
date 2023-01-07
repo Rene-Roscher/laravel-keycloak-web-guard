@@ -141,7 +141,11 @@ class KeycloakWebGuard implements Guard
         }
 
         // Provide User
-        $user = $this->provider->retrieveByCredentials($user);
+        $user = $this->provider->retrieveByCredentials([
+            'name' => $user['preferred_username'] ?? null,
+            'email' => $user['email'] ?? null,
+            'keycloak_id' => $user['sub'] ?? null,
+        ]);
         $this->setUser($user);
 
         return true;
